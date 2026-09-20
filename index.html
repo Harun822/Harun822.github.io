@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harun Nabiyev</title>
+<meta name="description" content="Harun Nabiyev — IB Diploma student in Baku, Azerbaijan. Co-founder of Eduvest (ISEF Microsoft Special Award), author of a peer-reviewed paper on LLM source verification, AI intern at NAIC.">
+<meta property="og:title" content="Harun Nabiyev">
+<meta property="og:description" content="IB student building AI tools that make complicated information understandable.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1621'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='34' fill='%232dd4a6' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="#top" id="brand"></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow" id="eyebrow"></div>
+      <h1 id="headline"></h1>
+      <p class="name" id="name"></p>
+      <p class="sub" id="subline"></p>
+      <div class="actions" id="actions"></div>
+    </div>
+    <img class="portrait" id="portrait" alt="">
+  </div>
+  <div class="facts" id="factsWrap"><div class="wrap" id="facts"></div></div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">01</span><h2>About</h2></div>
+      <div class="lead" id="about-text"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">02</span><h2>Projects &amp; Research</h2></div>
+      <div class="cards" id="project-cards"></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">03</span><h2>Experience</h2></div>
+      <ul class="tl" id="exp-list"></ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap two">
+      <div>
+        <div class="sec-head"><span class="num">04</span><h2>Education</h2></div>
+        <ul class="edu tl" id="edu-list"></ul>
+      </div>
+      <div>
+        <div class="sec-head"><span class="num">05</span><h2>Honors</h2></div>
+        <ul class="honors" id="honors-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">06</span><h2>Beyond the Classroom</h2></div>
+      <div class="acts" id="acts"></div>
+      <div class="skillgrid" id="skillgrid"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">07</span><h2>Get in touch</h2></div>
+      <div id="contact-body"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span id="copyright"></span>
+    <span id="footnote"></span>
+  </div>
+</footer>
+
+<script src="content.js"></script>
+<script>
+/* Rendering — edit content.js, not this. */
+(function () {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const list = (arr, fn) => (arr || []).map(fn).join("");
+  const ICONS = {
+    github: '<svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21h-4z"/></svg>',
+    email: '<svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7l-8 5-8-5z"/></svg>',
+    link: '<svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l2.8-2.8a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zm-2.8 2.8a3 3 0 0 1 0-4.2l1.4-1.4-1.4-1.4-1.4 1.4a5 5 0 0 0 7 7l1.4-1.4-1.4-1.4-1.4 1.4a3 3 0 0 1-4.2 0zm8.4-8.4a3 3 0 0 1 0 4.2l-1.4 1.4 1.4 1.4 1.4-1.4a5 5 0 0 0-7-7L9.2 7.8l1.4 1.4 1.4-1.4a3 3 0 0 1 4.2 0z"/></svg>',
+  };
+
+  // hero
+  document.title = SITE.name;
+  const [first, ...rest] = SITE.name.split(" ");
+  $("brand").innerHTML = esc(first) + " <b>" + esc(rest.join(" ")) + "</b>";
+  $("eyebrow").textContent = SITE.role;
+  $("headline").textContent = SITE.headline;
+  $("name").innerHTML = esc(SITE.name) + " <span>· " + esc(SITE.school) + "</span>";
+  $("subline").textContent = SITE.subline || ""; $("subline").hidden = !SITE.subline;
+  let a = "";
+  if (SITE.cvFile) a += `<a class="btn primary" href="${esc(SITE.cvFile)}" target="_blank" rel="noopener">Download CV</a>`;
+  if (SITE.email)  a += `<a class="btn" href="mailto:${esc(SITE.email)}">Email me</a>`;
+  const links = (SITE.links || []).filter(l => l.url);
+  if (links.length) a += `<span class="iconlinks">` + list(links, l => `<a href="${esc(l.url)}" target="_blank" rel="noopener" title="${esc(l.label)}" aria-label="${esc(l.label)}">${ICONS[l.icon] || ICONS.link}</a>`) + `</span>`;
+  $("actions").innerHTML = a;
+  const hero = document.querySelector(".hero"), img = $("portrait");
+  if (SITE.photo) { img.src = SITE.photo; img.alt = `Portrait of ${SITE.name}`; img.onerror = () => { img.remove(); hero.classList.add("no-photo"); }; }
+  else { img.remove(); hero.classList.add("no-photo"); }
+  $("facts").innerHTML = list(SITE.facts, f => `<div class="fact"><div class="v">${esc(f.value)}</div><div class="l">${esc(f.label)}</div></div>`);
+  if (!(SITE.facts || []).length) $("factsWrap").remove();
+
+  // about
+  $("about-text").innerHTML = list(SITE.about, p => `<p>${esc(p)}</p>`);
+
+  // projects
+  $("project-cards").innerHTML = list(SITE.projects, p => `<article class="card">
+      <div class="tag">${esc(p.tag)}</div>
+      <h3>${esc(p.title)}</h3>
+      <p class="summary">${esc(p.summary)}</p>
+      <ul class="details">${list(p.details, d => `<li>${esc(d)}</li>`)}</ul>
+      ${p.link ? `<a class="more" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.linkLabel || "Learn more")}</a>` : ""}
+    </article>`);
+
+  // experience
+  const entry = (title, org, when, pts) => `<li>
+      <div class="top"><div><h3>${esc(title)}</h3><div class="org">${esc(org)}</div></div><div class="when">${esc(when)}</div></div>
+      ${(pts || []).length ? `<ul class="pts">${list(pts, x => `<li>${esc(x)}</li>`)}</ul>` : ""}
+    </li>`;
+  $("exp-list").innerHTML = list(SITE.experience, x => entry(x.role, x.org + (x.place ? " · " + x.place : ""), x.period, x.points));
+  $("edu-list").innerHTML = list(SITE.education, e => entry(e.school, e.degree + (e.place ? " · " + e.place : ""), e.period, e.points));
+  $("honors-list").innerHTML = list(SITE.honors, h => `<li><span class="yr">${esc(h.year)}</span><span>${esc(h.text)}</span></li>`);
+
+  // activities + skills
+  $("acts").innerHTML = list(SITE.activities, x => `<div class="act"><h3>${esc(x.title)}</h3><div class="where">${esc(x.where)}</div><p>${esc(x.text)}</p></div>`);
+  const block = (h, arr, cls) => (arr || []).length ? `<div><h3>${h}</h3><ul class="${cls}">${list(arr, s => `<li>${esc(s)}</li>`)}</ul></div>` : "";
+  $("skillgrid").innerHTML = block("Technical skills", SITE.skills, "chips") + block("Languages", SITE.languages, "plain") + block("Standardised tests", SITE.tests, "plain");
+
+  // contact
+  $("contact-body").innerHTML = `<p>I'm applying to universities for autumn 2027 entry and am always glad to talk about AI, financial literacy, or anything on this page.</p>
+    ${SITE.email ? `<div class="big"><a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a></div>` : ""}
+    ${links.length ? `<p>${list(links, l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).replace(/<\/a><a/g, '</a> · <a')}</p>` : ""}`;
+
+  $("copyright").textContent = `© ${new Date().getFullYear()} ${SITE.name}`;
+  $("footnote").textContent = SITE.footerNote || "";
+
+  // nav
+  const toggle = $("navToggle"), menu = $("menu");
+  toggle.addEventListener("click", () => toggle.setAttribute("aria-expanded", menu.classList.toggle("open")));
+  menu.addEventListener("click", e => { if (e.target.tagName === "A") menu.classList.remove("open"); });
+  const navLinks = [...menu.querySelectorAll("a")];
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-40% 0px -55% 0px" });
+  navLinks.map(l => document.querySelector(l.getAttribute("href"))).filter(Boolean).forEach(t => io.observe(t));
+})();
+</script>
+</body>
+</html>
